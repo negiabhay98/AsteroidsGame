@@ -1,15 +1,73 @@
 //your variable declarations here
+SpaceShip Trump = new SpaceShip();
 public void setup() 
 {
-  //your code here
+  size(800, 800);
+  background(0);
 }
 public void draw() 
 {
-  //your code here
+  fill(0, 0, 0, 120);
+  rect(0, 0, 800,800);
+  Trump.show();
+  Trump.move();
 }
-class SpaceShip //extends Floater  
+public void keyPressed()
+  {
+    if(keyCode == UP)
+    {
+      Trump.accelerate(0.25);
+    }
+    if(keyCode == DOWN)
+    {
+      Trump.accelerate(-0.25);
+    }
+    if(keyCode == RIGHT)
+    {
+      Trump.rotate(10);
+    }
+    if(keyCode == LEFT)
+    {
+      Trump.rotate(-10);
+    }
+    if(key == 'h')
+    {
+      Trump.setX((int)(Math.random()*800));
+      Trump.setY((int)(Math.random()*800));
+    }
+
+  }
+class SpaceShip extends Floater  
 {   
-    //your code here
+    public SpaceShip()
+    {
+      corners = 3;
+      xCorners = new int[corners];
+      yCorners = new int[corners];
+      xCorners [0] = 20;
+      yCorners [0] = 0;
+      xCorners [1] = -10;
+      yCorners [1] = 10;
+      xCorners [2] = -10;
+      yCorners [2] = -10;
+      myColor = color(214, 255, 82);
+
+      myCenterX = 400;
+      myCenterY = 400;
+      myDirectionX = 0;
+      myDirectionY = 0;
+      myPointDirection = 0;
+    }
+      public void setX(int x){myCenterX = x;}  
+      public int getX(){return (int)myCenterX;}   
+      public void setY(int y){myCenterY = y;} 
+      public int getY() {return((int)myCenterY);}  
+      public void setDirectionX(double x) {myDirectionX = 0;}  
+      public double getDirectionX() {return ((int)myDirectionX);}  
+      public void setDirectionY(double y) {myDirectionY = 0;} 
+      public double getDirectionY() {return (int)myDirectionY;}
+      public void setPointDirection(int degrees) {myPointDirection = degrees;}  
+      public double getPointDirection() {return (int)myPointDirection;}
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
@@ -31,6 +89,7 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   abstract public void setPointDirection(int degrees);   
   abstract public double getPointDirection(); 
 
+  
   //Accelerates the floater in the direction it is pointing (myPointDirection)   
   public void accelerate (double dAmount)   
   {          
@@ -85,6 +144,15 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
       vertex(xRotatedTranslated,yRotatedTranslated);    
     }   
     endShape(CLOSE);  
-  }   
+
+  }  
+  class Star
+  {
+    int n = (int)Math.random()*100;
+    //public star ()
+    {
+      //(int n, n++, )
+    }
+  }
 } 
 
