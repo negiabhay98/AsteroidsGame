@@ -35,7 +35,6 @@ public void keyPressed()
       Trump.setX((int)(Math.random()*800));
       Trump.setY((int)(Math.random()*800));
     }
-
   }
 class SpaceShip extends Floater  
 {   
@@ -51,7 +50,6 @@ class SpaceShip extends Floater
       xCorners [2] = -10;
       yCorners [2] = -10;
       myColor = color(214, 255, 82);
-
       myCenterX = 400;
       myCenterY = 400;
       myDirectionX = 0;
@@ -104,7 +102,7 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     //rotates the floater by a given number of degrees    
     myPointDirection+=nDegreesOfRotation;   
   }   
-  public void move ()   //move the floater in the current direction of travel
+  public void move () 
   {      
     //change the x and y coordinates by myDirectionX and myDirectionY       
     myCenterX += myDirectionX;    
@@ -128,7 +126,7 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
       myCenterY = height;    
     }   
   }   
-  public void show ()  //Draws the floater at the current position  
+  public void show ()   
   {             
     fill(myColor);   
     stroke(myColor);    
@@ -144,15 +142,5 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
       vertex(xRotatedTranslated,yRotatedTranslated);    
     }   
     endShape(CLOSE);  
-
   }  
-  class Star
-  {
-    int n = (int)Math.random()*100;
-    //public star ()
-    {
-      //(int n, n++, )
-    }
-  }
 } 
-
