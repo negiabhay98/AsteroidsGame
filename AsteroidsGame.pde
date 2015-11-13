@@ -1,9 +1,14 @@
 //your variable declarations here
 SpaceShip Trump = new SpaceShip();
+star [] cluster = new star[400];
 public void setup() 
 {
   size(800, 800);
   background(0);
+  for (int a = 0; a < cluster.length; a++)
+  {
+    cluster[a] = new star();
+  }
 }
 public void draw() 
 {
@@ -11,6 +16,10 @@ public void draw()
   rect(0, 0, 800,800);
   Trump.show();
   Trump.move();
+  for (int a = 0; a < cluster.length; a++)
+  {
+    cluster[a].show();
+  }
 }
 public void keyPressed()
   {
@@ -111,19 +120,27 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     //wrap around screen    
     if(myCenterX >width)
     {     
-      myCenterX = 0;    
+      myCenterX = 0;
+      for(int i= 0; i < cluster.length; i++)
+        cluster[i].reset();    
     }    
     else if (myCenterX<0)
     {     
-      myCenterX = width;    
+      myCenterX = width;
+      for(int i= 0; i < cluster.length; i++)
+        cluster[i].reset();      
     }    
     if(myCenterY >height)
     {    
-      myCenterY = 0;    
+      myCenterY = 0;  
+      for(int i= 0; i < cluster.length; i++)
+        cluster[i].reset();    
     }   
     else if (myCenterY < 0)
     {     
-      myCenterY = height;    
+      myCenterY = height; 
+      for(int i= 0; i < cluster.length; i++)
+        cluster[i].reset();    
     }   
   }   
   public void show ()   
@@ -144,3 +161,27 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     endShape(CLOSE);  
   }  
 } 
+public class star
+{
+  private int myX = 400;
+  private int myY = 400;
+  private int mySize = 1;
+  star ()
+  {
+    myX = (int)(Math.random()*800);
+    myY = (int)(Math.random()*800);
+    mySize = (int)(Math.random()*4);
+  }
+  public void show()
+  {
+    fill (255, 255, 255);
+    noStroke();
+    ellipse(myX, myY, mySize, mySize);
+  }
+  public void reset()
+  {
+    myX = (int)(Math.random()*800);
+    myY = (int)(Math.random()*800);
+    mySize = (int)(Math.random()*4);
+  }
+}
