@@ -43,6 +43,9 @@ public void keyPressed()
     {
       Trump.setX((int)(Math.random()*800));
       Trump.setY((int)(Math.random()*800));
+      Trump.setDirectionX(0.0);
+      Trump.setDirectionY(0.0);
+      Trump.setPointDirection((int)(Math.random()*360));
     }
   }
 class SpaceShip extends Floater  
